@@ -27,27 +27,32 @@ export function AmbientAudio({ src, volume = 0.6 }: Props) {
     const el = audioRef.current;
     if (!el) return;
     const targetVol = muted ? 0 : volume;
-    if (phase === 'in-scene' || phase === 'diving') {
+    const audible = phase === 'in-scene' || phase === 'diving';
+    const startVol = el.volume;
+    const start = performance.now();
+    let rafHandle = 0;
+
+    if (audible) {
       el.play().catch(() => {});
-      let v = el.volume;
-      const start = performance.now();
       const tick = (now: number) => {
         const t = Math.min(1, (now - start) / 600);
-        el.volume = v + (targetVol - v) * t;
-        if (t < 1) requestAnimationFrame(tick);
+        el.volume = Math.max(0, Math.min(1, startVol + (targetVol - startVol) * t));
+        if (t < 1) rafHandle = requestAnimationFrame(tick);
       };
-      requestAnimationFrame(tick);
+      rafHandle = requestAnimationFrame(tick);
     } else {
-      let v = el.volume;
-      const start = performance.now();
       const tick = (now: number) => {
         const t = Math.min(1, (now - start) / 600);
-        el.volume = v + (0 - v) * t;
-        if (t < 1) requestAnimationFrame(tick);
+        el.volume = Math.max(0, Math.min(1, startVol + (0 - startVol) * t));
+        if (t < 1) rafHandle = requestAnimationFrame(tick);
         else el.pause();
       };
-      requestAnimationFrame(tick);
+      rafHandle = requestAnimationFrame(tick);
     }
+
+    return () => {
+      if (rafHandle) cancelAnimationFrame(rafHandle);
+    };
   }, [phase, muted, volume]);
 
   return null;

@@ -10,6 +10,18 @@ import styles from './MapboxMap.module.css';
 
 type Props = { trip: Trip };
 
+let mapboxTokenInitialized = false;
+
+function ensureMapboxToken(): string | null {
+  const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+  if (!token) return null;
+  if (!mapboxTokenInitialized) {
+    mapboxgl.accessToken = token;
+    mapboxTokenInitialized = true;
+  }
+  return token;
+}
+
 export function MapboxMap({ trip }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
@@ -19,14 +31,13 @@ export function MapboxMap({ trip }: Props) {
   const markMapIdle = useTripStore((s) => s.markMapIdle);
 
   useEffect(() => {
-    const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+    const token = ensureMapboxToken();
     if (!token) {
       console.warn('NEXT_PUBLIC_MAPBOX_TOKEN missing — map will not render.');
       return;
     }
     if (!containerRef.current) return;
 
-    mapboxgl.accessToken = token;
     const map = new mapboxgl.Map({
       container: containerRef.current,
       style: trip.map.style,

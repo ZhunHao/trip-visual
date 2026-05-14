@@ -12,7 +12,7 @@ type Props = {
 export function TripCard({ slug, title, subtitle, cover, stopCount }: Props) {
   return (
     <Link href={`/trips/${slug}`} className={styles.card}>
-      <img src={cover} alt="" className={styles.cover} />
+      <img src={cover} alt={title} className={styles.cover} />
       <div className={styles.body}>
         <h2 className={styles.title}>{title}</h2>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
