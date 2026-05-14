@@ -1,0 +1,22 @@
+.strip {
+  display: flex;
+  gap: 6px;
+  padding: var(--space-2) 0;
+}
+
+.segment {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  border: none;
+  transition: background 200ms ease;
+}
+
+.segment:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.segment[data-active='true'] {
+  background: var(--color-accent);
+}
