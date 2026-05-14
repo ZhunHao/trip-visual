@@ -1,0 +1,37 @@
+{
+  "slug": "iceland-ring-2026",
+  "title": "Iceland Ring Road",
+  "subtitle": "Reykjavík · Vík · Höfn",
+  "cover": "assets/cover.jpg",
+  "palette": {
+    "skyTop": "#0c1014",
+    "skyBottom": "#1a2a30",
+    "accent": "#6bd1ff"
+  },
+  "map": {
+    "style": "mapbox://styles/mapbox/dark-v11",
+    "initial": { "center": [-19.0, 64.9], "zoom": 5.4, "pitch": 20, "bearing": 0 }
+  },
+  "stops": [
+    {
+      "id": "reykjavik",
+      "title": "Reykjavík",
+      "subtitle": "Day 1",
+      "coords": [-21.94, 64.15],
+      "diveTarget": { "zoom": 16, "pitch": 60, "bearing": 0 },
+      "scene": {
+        "skybox": { "kind": "pano", "src": "assets/panos/reykjavik.jpg" }
+      }
+    },
+    {
+      "id": "vik",
+      "title": "Vík í Mýrdal",
+      "subtitle": "Day 3",
+      "coords": [-19.01, 63.42],
+      "diveTarget": { "zoom": 16, "pitch": 60, "bearing": 180 },
+      "scene": {
+        "skybox": { "kind": "mapbox-close" }
+      }
+    }
+  ]
+}
