@@ -1,0 +1,21 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}
+
+.title {
+  margin: 0 0 var(--space-4);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+}
+
+.body {
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.body a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
