@@ -1,0 +1,64 @@
+{
+  "slug": "japan-spring-2026",
+  "title": "Japan, Spring 2026",
+  "subtitle": "Tokyo · Kyoto · Hakone",
+  "cover": "assets/cover.jpg",
+  "palette": {
+    "skyTop": "#0d0d12",
+    "skyBottom": "#2a1f1a",
+    "accent": "#ff6b35"
+  },
+  "map": {
+    "style": "mapbox://styles/mapbox/dark-v11",
+    "initial": {
+      "center": [138.9, 35.5],
+      "zoom": 6.2,
+      "pitch": 30,
+      "bearing": 0
+    }
+  },
+  "stops": [
+    {
+      "id": "shibuya-crossing",
+      "title": "Shibuya Crossing",
+      "subtitle": "Tokyo, 22:00",
+      "coords": [139.7006, 35.6595],
+      "diveTarget": { "zoom": 17, "pitch": 70, "bearing": 35 },
+      "scene": {
+        "skybox": {
+          "kind": "pano",
+          "src": "assets/panos/tokyo-shibuya.jpg",
+          "rotationY": 0
+        },
+        "models": [
+          {
+            "id": "hachiko",
+            "src": "assets/models/hachiko.glb",
+            "position": [0, -1.2, -3],
+            "scale": 1
+          }
+        ],
+        "audio": {
+          "ambient": "assets/audio/tokyo-night.mp3",
+          "volume": 0.6
+        },
+        "hotspots": [
+          {
+            "id": "hachiko-statue",
+            "position": [0, -0.4, -2.6],
+            "title": "Hachikō Statue",
+            "body": "The faithful Akita who waited at Shibuya station for his deceased owner every day for nine years.",
+            "media": ["assets/photos/shibuya-1.jpg"]
+          },
+          {
+            "id": "scramble-view",
+            "position": [2, 0.3, -2],
+            "title": "The Scramble",
+            "body": "Up to 3,000 pedestrians cross at once when the lights go green."
+          }
+        ]
+      },
+      "notes": "Arrived at 22:00 — neon at peak. Captured pano from the Shibuya Scramble Square viewing deck."
+    }
+  ]
+}
