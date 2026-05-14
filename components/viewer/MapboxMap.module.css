@@ -1,0 +1,24 @@
+.container {
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.canvas :global(.mapboxgl-ctrl-attrib),
+.canvas :global(.mapboxgl-ctrl-logo) {
+  opacity: 0.4;
+  transition: opacity 600ms ease;
+}
+
+.canvas[data-phase='in-scene'] :global(.mapboxgl-ctrl-attrib),
+.canvas[data-phase='in-scene'] :global(.mapboxgl-ctrl-logo),
+.canvas[data-phase='diving'] :global(.mapboxgl-ctrl-attrib),
+.canvas[data-phase='diving'] :global(.mapboxgl-ctrl-logo) {
+  opacity: 0;
+  pointer-events: none;
+}
