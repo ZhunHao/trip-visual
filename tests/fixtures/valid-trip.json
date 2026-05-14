@@ -1,0 +1,21 @@
+{
+  "slug": "test-trip",
+  "title": "Test Trip",
+  "cover": "assets/cover.jpg",
+  "palette": { "skyTop": "#0a0a0c", "skyBottom": "#1a1820", "accent": "#ff6b35" },
+  "map": {
+    "style": "mapbox://styles/mapbox/dark-v11",
+    "initial": { "center": [139.7, 35.68], "zoom": 8, "pitch": 30, "bearing": 0 }
+  },
+  "stops": [
+    {
+      "id": "stop-1",
+      "title": "First Stop",
+      "coords": [139.7, 35.68],
+      "diveTarget": { "zoom": 16, "pitch": 65, "bearing": 0 },
+      "scene": {
+        "skybox": { "kind": "pano", "src": "assets/panos/test.jpg" }
+      }
+    }
+  ]
+}

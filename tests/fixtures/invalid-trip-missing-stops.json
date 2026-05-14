@@ -1,0 +1,11 @@
+{
+  "slug": "no-stops",
+  "title": "Empty",
+  "cover": "assets/cover.jpg",
+  "palette": { "skyTop": "#000", "skyBottom": "#111", "accent": "#fff" },
+  "map": {
+    "style": "mapbox://styles/mapbox/dark-v11",
+    "initial": { "center": [0, 0], "zoom": 5, "pitch": 0, "bearing": 0 }
+  },
+  "stops": []
+}
